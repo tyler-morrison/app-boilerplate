@@ -1,0 +1,14 @@
+$global-margin: 1rem;
+$global-padding: 1rem;
+
+$global-text-direction: ltr;
+$global-left: if($global-text-direction == rtl, right, left);
+$global-right: if($global-text-direction == rtl, left, right);
+
+$global-font-size: 100%;
+$global-width: 1200rem;
+$global-lineheight: 1.5;
+$global-weight-normal: normal;
+$global-weight-bold: bold;
+
+$global-radius: 0;

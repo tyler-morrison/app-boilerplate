@@ -1,0 +1,62 @@
+////
+/// @group media-object
+////
+
+/// Bottom margin of a media object.
+/// @type Number
+$o-media-margin-bottom: $global-margin !default;
+
+/// Left and right padding on sections within a media object.
+/// @type Number
+$o-media-section-padding: $global-padding !default;
+
+/// Width of images within a media object, when the object is stacked vertically. Set to 'auto' to use the image's natural width.
+/// @type Number
+$o-media-image-width-stacked: 100% !default;
+
+// Include this mixin with a media-query to force the media object to stack
+@mixin o-media-stack {
+    flex-wrap: wrap;
+
+    & > * {
+        display: block;
+        max-width: 100%;
+        flex-basis: 100%;
+        padding: 0;
+        padding-bottom: 1rem;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+// All flex declarations should have appropriate fallbacks
+.o-media {
+    display: block;
+    display: flex;
+    margin-bottom: $o-media-margin-bottom;
+    flex-wrap: nowrap;
+
+    > * {
+        display: table-cell;
+        flex: 0 1 auto;
+        vertical-align: top;
+
+        &:first-child {
+            padding-#{$global-right}: $o-media-section-padding;
+        }
+
+        &:last-child:not(:nth-child(2)) {
+            padding-#{$global-left}: $o-media-section-padding;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    img {
+        max-width: none;
+    }
+}
