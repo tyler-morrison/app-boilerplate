@@ -14,7 +14,7 @@
     "npm": "2.14.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack"
   },
   "dependencies": {
     "chalk": "~1.1.0",
@@ -23,6 +23,8 @@
     "webpack-dev-middleware": "~1.6.0"
   },
   "devDependencies": {
+    "html-webpack-plugin": "^2.22.0",
+    "html-webpack-template": "^5.0.0",
     "webpack": "~1.13.0",
     "webpack-dev-server": "~1.14.0",
     "webpack-merge": "~0.14.0",
