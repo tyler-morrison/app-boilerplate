@@ -3,8 +3,7 @@
  */
 const path = require('path'),
   express = require( 'express' ),
-	morgan = require( 'morgan' ),
-	pages = require( 'pages' );
+	morgan = require( 'morgan' );
 
 
 /**
