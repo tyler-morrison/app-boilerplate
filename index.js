@@ -1,3 +1,11 @@
-var helloWorld = require('boot');
+/**
+ * External Dependencies
+ */
+const boot = require('boot'),
+  http = require('http'),
+  chalk = require('chalk');
 
-document.body.appendChild(helloWorld());
+/**
+ * Internal Dependencies
+ */
+const pkg = require('./package.json');
