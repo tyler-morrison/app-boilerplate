@@ -45,11 +45,7 @@ const common = merge(
       root: [ PATHS.server, PATHS.client, __dirname],
       modulesDirectories: [ 'node_modules' ]
     }
-  },
-  parts.indexTemplate({
-    title: 'New Application',
-    appMountId: 'app'
-  })
+  }
 );
 
 let config;
@@ -62,7 +58,8 @@ switch (TARGET) {
       common,
       {
         devtool: 'eval-source-map',
-      }
+      },
+      parts.npmInstall()
     );
 }
 
