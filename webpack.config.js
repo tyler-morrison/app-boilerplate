@@ -9,9 +9,10 @@ const path = require('path'),
 /**
  * Internal Dependencies
  */
-const parts = require('./lib/parts');
+const parts = require('require-all')(__dirname + '/lib');
 
 const TARGET = process.env.npm_lifecycle_event;
+
 const PATHS = {
   client: path.join(__dirname, 'client'),
   server: path.join(__dirname, 'server'),
@@ -21,6 +22,8 @@ const PATHS = {
   build: path.join(__dirname, 'build'),
   test: path.join(__dirname, 'tests')
 };
+
+process.env.BABEL_ENV = TARGET;
 
 const common = merge(
   {
@@ -40,7 +43,8 @@ const common = merge(
       //publicPath: ''
     },
     resolve: {
-      extensions: ['', '.json', '.js', '.jsx'],
+      // Important! Do not remove ''. If you do, imports without an extension won't work anymore!
+      extensions: ['', '.js', '.jsx'],
       // Include both `client` and `server` to root so that all modules resolve.
       root: [ PATHS.server, PATHS.client, __dirname],
       modulesDirectories: [ 'node_modules' ]
