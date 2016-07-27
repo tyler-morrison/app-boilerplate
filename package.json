@@ -1,7 +1,7 @@
 {
   "name": "app-boilerplate",
   "version": "0.0.1",
-  "description": "An opinionated starting point for applications — React, Webpack, Express, and TypeScript",
+  "description": "An opinionated starting point for applications — React, Webpack, Koa, and TypeScript",
   "author": "Tyler Morrison",
   "private": true,
   "repository": {
@@ -14,10 +14,12 @@
     "npm": "2.14.0"
   },
   "scripts": {
+    "start": "webpack-dev-server",
     "build": "webpack"
   },
   "dependencies": {
     "chalk": "~1.1.0",
+    "koa": "^1.2.1",
     "morgan": "^1.7.0",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
@@ -27,13 +29,14 @@
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "clean-webpack-plugin": "^0.1.10",
+    "node-sass": "^3.8.0",
     "npm-install-webpack-plugin": "^4.0.4",
     "require-all": "^2.0.0",
+    "sass-loader": "^4.0.0",
     "source-map-loader": "^0.1.5",
     "ts-loader": "^0.8.2",
     "typescript": "^1.8.10",
     "webpack": "~1.13.0",
-    "webpack-dev-middleware": "~1.6.0",
     "webpack-dev-server": "~1.14.0",
     "webpack-merge": "~0.14.0",
     "webpack-validator": "~2.2.0"

@@ -23,8 +23,6 @@ const PATHS = {
   test: path.join(__dirname, "tests")
 };
 
-process.env.BABEL_ENV = TARGET;
-
 const common = merge(
   {
     // Entry accepts a path or an object of entries.
