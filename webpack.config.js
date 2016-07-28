@@ -16,7 +16,7 @@ const PATHS = {
   client: path.join(__dirname, 'client'),
   server: path.join(__dirname, 'server'),
   style: [
-    path.join(__dirname, 'assets', 'style.scss')
+    path.join(__dirname, 'assets', 'styles', 'main.scss')
   ],
   build: path.join(__dirname, 'build'),
   test: path.join(__dirname, 'tests')
@@ -33,10 +33,10 @@ const common = merge(
     },
     resolve: {
       // Important! Do not remove ''. If you do, imports without an extension won't work anymore!
-      extensions: ['', '.js', '.ts', '.tsx'],
-      // Include both `client` and `server` to root so that all modules resolve.
-      root: [ PATHS.server, PATHS.client, __dirname],
-      modulesDirectories: [ 'node_modules' ]
+      extensions: ['', '.js', '.ts', '.tsx']
+      // Inlcude both `client` amd `server` to root so that all modules resolve.
+      // root: [ PATHS.server, PATHS.client, __dirname],
+      // modulesDirectories: [ 'node_modules' ]
     }
   },
   parts.loadTSX()
@@ -52,8 +52,13 @@ switch (TARGET) {
       common,
       {
         devtool: 'eval-source-map',
+        entry: {
+          style: PATHS.style
+        }
       },
       // TODO: Set dev ? true | false based on env variable
+      parts.minify(),
+      parts.styles.extract(PATHS.style),
       parts.npmInstall()
     );
 }
