@@ -30,6 +30,8 @@ const common = merge(
     output: {
       path: PATHS.build,
       filename: '[name].js'
+      // TODO: Set publicPath to match your GitHub project name to use 'gh-pages'
+      //publicPath: ''
     },
     resolve: {
       // NOTE: Do not remove ''. If you do, imports w/o an extension won't function!
