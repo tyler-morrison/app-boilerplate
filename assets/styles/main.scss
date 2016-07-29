@@ -1,6 +1,24 @@
-body {
-  background: green;
-  font-size: 2.5rem;
-  display: flex;
-  border-radius: 5px;
-}
+// TODO: Write intro comments about ITCSS methodology and folder structure.
+@import "01-Settings/colors";
+@import "01-Settings/global";
+
+@import "02-Tools/mixins";
+
+@import "03-Generic/normalize";
+@import "03-Generic/box-sizing";
+
+@import "04-Base/page";
+@import "04-Base/typography";
+@import "04-Base/tables";
+@import "04-Base/forms";
+
+@import "05-Objects/layout";
+@import "05-Objects/media";
+
+@import "06-Components/links";
+@import "06-Components/images";
+
+@import "07-Trumps/links";
+
+// TODO: Write better comment for vendor stylesheet.
+// @import "vendor/some-third-party-stylesheet"
