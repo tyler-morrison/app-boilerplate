@@ -58,7 +58,7 @@ switch (TARGET) {
       },
       // TODO: Set dev ? true | false based on env variable
       parts.minify(),
-      parts.styles.extract(PATHS.style),
+      parts.buildSass.andExtract(PATHS.style),
       parts.npmInstall()
     );
 }
