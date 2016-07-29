@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "chalk": "~1.1.0",
+    "expose-loader": "^0.7.1",
     "koa": "^1.2.1",
     "react": "^15.2.1",
     "react-dom": "^15.2.1"

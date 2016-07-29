@@ -97,8 +97,7 @@ switch (TARGET) {
       parts.devServer({
         // Customize host/port here if needed
         host: process.env.HOST,
-        port: process.env.PORT,
-        poll: ENABLE_POLLING
+        port: process.env.PORT
       }),
       parts.buildSass.basic(PATHS.style),
       parts.includeReact.performanceTools(),
