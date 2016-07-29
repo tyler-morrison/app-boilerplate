@@ -65,6 +65,10 @@ switch (TARGET) {
         'process.env.NODE_ENV',
         'production'
       ),
+      parts.extractBundle({
+        name: 'vendor',
+        entries: ['react', 'react-dom']
+      }),
       parts.minifyScripts(),
       parts.buildSass.andExtract(PATHS.style)
     );
