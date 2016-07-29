@@ -59,6 +59,12 @@ switch (TARGET) {
           chunkFilename: '[chunkhash].js'
         }
       },
+      parts.cleanBuild(PATHS.build),
+      // Force `process.env.NODE_ENV` to 'production' for improved performance.
+      parts.includeReact.setFreeVariable(
+        'process.env.NODE_ENV',
+        'production'
+      ),
       parts.minifyScripts(),
       parts.buildSass.andExtract(PATHS.style)
     );
