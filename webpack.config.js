@@ -35,7 +35,7 @@ const common = merge(
     },
     resolve: {
       // NOTE: Do not remove ''. If you do, imports w/o an extension won't function!
-      extensions: ['', '.js', '.ts', '.tsx'],
+      extensions: ['', '.js', '.jsx'],
       // Include both `client` and `server` to root so that all modules resolve.
       root: [ PATHS.server, PATHS.client],
       modulesDirectories: [ 'node_modules' ]
@@ -46,8 +46,9 @@ const common = merge(
     title: 'New Application',
     appMountId: 'app'
   }),
-  // Use Typescript for all applcation files
-  parts.includeTypescript()
+  // NOTE: This branch allows for Babel instead of TypeScript
+  parts.includeBabel.load(),
+  parts.includeBabel.lint()
 );
 
 let webpackConfig;
