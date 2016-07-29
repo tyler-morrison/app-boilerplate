@@ -15,13 +15,16 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
+    "test": "karma start",
+    "test:tdd": "npm run test -- --auto-watch --no-single-run",
     "build": "webpack",
-    "clean": "rm -rf build"
+    "deploy": "gh-pages -d build",
+    "stats": "webpack --profile --json > stats.json"
   },
   "dependencies": {
     "chalk": "~1.1.0",
     "koa": "^1.2.1",
-    "morgan": "^1.7.0",    
+    "morgan": "^1.7.0",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "semver": "~5.3.0"
@@ -34,10 +37,15 @@
     "css-loader": "^0.23.1",
     "cssnano": "^3.7.3",
     "extract-text-webpack-plugin": "^1.0.1",
+    "gh-pages": "^0.11.0",
+    "karma": "^1.1.2",
+    "mocha": "^2.5.3",
     "node-sass": "^3.8.0",
     "npm-install-webpack-plugin": "^4.0.4",
-    "postcss-loader": "^0.9.1",
     "pixrem": "^3.0.1",
+    "postcss-loader": "^0.9.1",
+    "react-addons-perf": "^15.2.1",
+    "react-addons-test-utils": "^15.2.1",
     "require-all": "^2.0.0",
     "sass-loader": "^4.0.0",
     "source-map-loader": "^0.1.5",

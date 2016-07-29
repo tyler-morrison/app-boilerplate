@@ -73,6 +73,8 @@ switch (TARGET) {
       parts.buildSass.andExtract(PATHS.style)
     );
     break;
+  // TODO: Come up with proper testing suite
+  case 'test':
   default:
     webpackConfig = merge(
       common,
