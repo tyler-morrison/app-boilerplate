@@ -41,6 +41,11 @@ const common = merge(
       modulesDirectories: [ 'node_modules' ]
     }
   },
+  // TODO: Remove this partial if you do not intend to use static HTML
+  parts.includeHTML.indexTemplate({
+    title: 'New Application',
+    appMountId: 'app'
+  }),
   // Use Typescript for all applcation files
   parts.includeTypescript()
 );
