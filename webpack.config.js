@@ -32,14 +32,12 @@ const common = merge(
       filename: '[name].js'
     },
     resolve: {
-      // Important! Do not remove ''. If you do, imports without an extension won't work anymore!
+      // NOTE: Do not remove ''. If you do, imports w/o an extension won't function!
       extensions: ['', '.js', '.ts', '.tsx']
-      // Inlcude both `client` amd `server` to root so that all modules resolve.
-      // root: [ PATHS.server, PATHS.client, __dirname],
-      // modulesDirectories: [ 'node_modules' ]
     }
   },
-  parts.loadTSX()
+  // Use Typescript for all applcation files
+  parts.includeTypescript()
 );
 
 let webpackConfig;
@@ -47,6 +45,24 @@ let webpackConfig;
 // Detect how npm is run and branch based on that
 switch (TARGET) {
   case 'build':
+  case 'stats':
+    webpackConfig = merge(
+      common,
+      {
+        devtool: 'source-map',
+        entry: {
+          style: PATHS.style
+        },
+        output: {
+          path: PATHS.build,
+          filename: '[name].[chunkhash].js',
+          chunkFilename: '[chunkhash].js'
+        }
+      },
+      parts.minifyScripts(),
+      parts.buildSass.andExtract(PATHS.style)
+    );
+    break;
   default:
     webpackConfig = merge(
       common,
@@ -56,9 +72,14 @@ switch (TARGET) {
           style: PATHS.style
         }
       },
-      // TODO: Set dev ? true | false based on env variable
-      parts.minify(),
-      parts.buildSass.andExtract(PATHS.style),
+      parts.devServer({
+        // Customize host/port here if needed
+        host: process.env.HOST,
+        port: process.env.PORT,
+        poll: ENABLE_POLLING
+      }),
+      parts.buildSass.basic(PATHS.style),
+      parts.includeReact.performanceTools(),
       parts.npmInstall()
     );
 }
