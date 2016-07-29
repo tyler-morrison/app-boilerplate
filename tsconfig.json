@@ -2,9 +2,15 @@
   "compileOnSave": false,
   "compilerOptions": {
     "target": "es5",
+    "jsx": "react",
+    "noImplicitAny": true,
+    "module": "commonjs",
     "sourceMap": true
   },
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "files": [
+        "./typings/index.d.ts"
+    ]
 }

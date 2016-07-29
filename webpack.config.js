@@ -35,7 +35,10 @@ const common = merge(
     },
     resolve: {
       // NOTE: Do not remove ''. If you do, imports w/o an extension won't function!
-      extensions: ['', '.js', '.ts', '.tsx']
+      extensions: ['', '.js', '.ts', '.tsx'],
+      // Include both `client` and `server` to root so that all modules resolve.
+      root: [ PATHS.server, PATHS.client],
+      modulesDirectories: [ 'node_modules' ]
     }
   },
   // Use Typescript for all applcation files
